@@ -48,9 +48,14 @@ export default function Home() {
   }, [isOpen]);
 
   const handleLangChange = (lang: string) => {
-    router.push(`/${lang}`);
+    router.replace(`/${lang}`);
     setIsOpen(false);
   };
+  useEffect(() => {
+    languages.forEach(({ code }) => {
+      router.prefetch(`/${code}`);
+    });
+  }, []);
   return (
     <>
       <div className="relative bg-[url('/images/cover_bg.avif')] px-6 flex items-center text-white font-bold  bg-cover bg-center h-screen w-full">
@@ -58,7 +63,7 @@ export default function Home() {
           <Image src={camcom} alt="camcom" width={32} />
         </div>
         <div className="absolute top-[30px] end-[20px] flex justify-between">
-          <div className="fixed top-4 right-4">
+         
             <button
               className={`text-white border cursor-pointer border-white font-medium rounded-full text-xs px-3 py-1 flex items-center gap-1 transition-transform duration-300`}
               onClick={() => setIsOpen(!isOpen)}
@@ -92,7 +97,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
+          
         </div>
         <div className="flex portrait:flex-wrap gap-4 items-center">
           <h1
