@@ -30,7 +30,7 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages();
   const {locale} = await params;
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
   return (
