@@ -5,7 +5,6 @@ import camcom from "/public/images/camcom.png";
 import arrow from "/public/images/icons/arrow-right.png";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 
@@ -16,9 +15,6 @@ export default function Home() {
   const pathname = usePathname();
   const currentLang = pathname.split("/")[1] || "en";
   
-
-  
-
   return (
     <>
       <div className=" z-10 bg-[url('/images/cover_bg.avif')] px-6 flex items-center text-white font-bold  bg-cover bg-center h-screen w-full">
